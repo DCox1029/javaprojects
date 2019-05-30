@@ -148,12 +148,13 @@ public class VMGame implements ActionListener {
 	JButton buttonBuy;
 	JButton buttonSell;
 	
-//------Timer Buttons-------------------------------------------------------------------------------
+//------Timer Buttons--*Not Used in the final version of the game*----------------------------------------
+	/*
 	ButtonGroup startstop;
 	JRadioButton buttonStart;
 	JRadioButton buttonStop;
 	Timer timer;
-	
+	*/
 //------Turn Button------------------------------------------------------------------------------------------
 	JButton buttonTurn;
 	
@@ -166,7 +167,7 @@ public class VMGame implements ActionListener {
 	     SwingUtilities.invokeLater(new Runnable() {
 
 	            public void run() {
-	              	resources.addMoney(1000000.0);
+	              	resources.addMoney(10000.0);
 	              	BuildIntroductionGUI();
 	            	//BuildGameGUI();
 	            }
@@ -175,7 +176,7 @@ public class VMGame implements ActionListener {
 	public void BuildIntroductionGUI(){
 		mainWindow = new JFrame();
 		mainWindow.setLocationByPlatform(true);
-		mainWindow.setSize(215, 270);
+		mainWindow.setSize(225, 285);
 		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainWindow.setLocationRelativeTo(null);
 		mainWindow.setResizable(true);
@@ -241,7 +242,7 @@ public class VMGame implements ActionListener {
 		inventory = new InventoryScreen();
 		totalScreen = new JPanel();
 		
-//------Start & Stop Buttons------------------------------------------------------------------------
+//------Start & Stop Buttons----*Idle time resource collection not implemented in final version of game*-------------------
 		/*startstopPanel = new JPanel();
 		buttonStart = new JRadioButton("Start");
 		buttonStop = new JRadioButton("Stop");
@@ -387,7 +388,7 @@ public class VMGame implements ActionListener {
 	public static int ifDays()
 		{return (fireDays + floodDays + internetDays + wifiDays);}
 	
-//------Methods for inflicting disaster damage to resources--------------------------------------------
+//------Methods for inflicting disaster damage to resources. Since Limestone determines rockdust accumulation, it is used to calculate rockdust damage----------------------------
 	public void setFireDamage(double fiDamage){
 		diamondsDamaged = (int)(totalDiamondsProduced*disasters.getFireDamage());
 		marbleDamaged = (int)(totalMarbleProduced*disasters.getFireDamage());
@@ -454,7 +455,7 @@ public class VMGame implements ActionListener {
 		}
 	}
 	
-//------Generates resources over time according to number of respective workers---------------------------
+//------Generates resources over time according to number of respective workers----*Not used in final version of game*---------
 	//public void buttonStartAction(){
 	public void buttonTurnAction(){
 		//timer = new Timer();
@@ -498,8 +499,7 @@ public class VMGame implements ActionListener {
 		    	rockdustDamaged = 0;
 		    	totalDamaged = diamondsDamaged + marbleDamaged + graniteDamaged + limestoneDamaged + rockdustDamaged;
 		    
-// Game is beaten once one million dollars is reached. Set a number of win messages so it doesn't
-// repeat every turn.
+// Game is beaten once one million dollars is reached. Set a number of win messages so it doesn't repeat every turn and become annoying
 		    	if (resources.getMoney() >= 1000000 && numWinMessage < 1){
 		    		numWinMessage++;
 		    		JOptionPane.showMessageDialog(null, "Congratulations! You reached one million dollars in " 
@@ -736,7 +736,7 @@ public class VMGame implements ActionListener {
 	//	 }
 	//	, 0, 5000);
 //	}
-
+ //-------*Not implemented in final version of game*-------
 	//public void buttonStopAction(){
 	//	if(timer!=null)
 	//		{timer.cancel();}
